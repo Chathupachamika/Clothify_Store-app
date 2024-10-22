@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="396.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierController">
+
+    <children>
+      <ImageView fitHeight="501.0" fitWidth="828.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/pexels-mart-production-7679669.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="13.0" layoutY="479.0" opacity="0.74" prefHeight="17.0" prefWidth="340.0" style="-fx-background-color: white;" />
+      <Label layoutX="447.0" layoutY="254.0" opacity="0.74" prefHeight="45.0" prefWidth="294.0" style="-fx-background-color: white;" />
+      <Label layoutX="14.0" layoutY="97.0" opacity="0.76" prefHeight="200.0" prefWidth="247.0" style="-fx-background-color: white;" />
+        <VBox alignment="TOP_CENTER" layoutX="-24.0" layoutY="95.0" prefHeight="218.0" prefWidth="322.0" spacing="20" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+
+            <!-- Form Section -->
+            <GridPane alignment="CENTER" hgap="20" vgap="15">
+                <!-- Supplier ID -->
+                <Label style="-fx-font-weight: bold;" text="Supplier ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <JFXTextField fx:id="txtsupplierIdField" promptText="Supplier Id" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <!-- Supplier Name -->
+                <Label style="-fx-font-weight: bold;" text="Supplier Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <JFXTextField fx:id="txtsupplierNameField" promptText="Enter Supplier Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <!-- Company Name -->
+                <Label style="-fx-font-weight: bold;" text="Company:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <JFXTextField fx:id="txtcompanyField" promptText="Enter Company Name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <!-- Email Address -->
+                <Label style="-fx-font-weight: bold;" text="Email Address:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <JFXTextField fx:id="txtemailField" promptText="Enter Email Address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <!-- Supplied Item -->
+                <Label style="-fx-font-weight: bold;" text="Supplied Item:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <JFXComboBox fx:id="cmbCategory" layoutX="108.0" layoutY="167.0" prefHeight="26.0" prefWidth="135.0" promptText="choose Wear" unFocusColor="BLACK" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Ladies" />
+                            <String fx:value="Gents" />
+                            <String fx:value="Kids" />
+                        </FXCollections>
+                    </items>
+                </JFXComboBox>
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+
+            <!-- Buttons Section -->
+            <HBox alignment="CENTER" spacing="15" />
+
+        </VBox>
+      <Label alignment="CENTER" layoutX="62.0" layoutY="14.0" prefHeight="64.0" prefWidth="550.0" style="-fx-border-style: solid; -fx-border-width: 4;" text="Supplier Management">
+         <font>
+            <Font name="STHupo" size="53.0" />
+         </font>
+         <effect>
+            <DropShadow spread="0.36">
+               <color>
+                  <Color red="0.7212475538253784" green="0.7894737124443054" blue="0.20467835664749146" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Text layoutX="14.0" layoutY="493.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="\@Generated by Clothify Store Management System">
+         <font>
+            <Font name="Book Antiqua Bold" size="14.0" />
+         </font>
+      </Text>
+      <TableView fx:id="productTable" layoutX="12.0" layoutY="305.0" opacity="0.8" prefHeight="156.0" prefWidth="671.0" style="-fx-background-color: #a2f4e4;">
+         <columns>
+            <TableColumn fx:id="colSupplierId" prefWidth="73.60000801086426" text="Supplier ID" />
+            <TableColumn fx:id="colSupplierName" prefWidth="124.0" text="Supplier Name" />
+            <TableColumn fx:id="colCompany" prefWidth="116.79998779296875" text="Company" />
+            <TableColumn fx:id="colEmail" prefWidth="203.20001220703125" text="Supplier Email" />
+            <TableColumn fx:id="colItem" prefWidth="151.99993896484375" text="Supplier Item" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="312.0" layoutY="204.0" onAction="#btnAddSupplier" prefHeight="34.0" prefWidth="114.0" ripplerFill="#1916c4" style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Add Supplier" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="312.0" layoutY="247.0" onAction="#btnUpdateSupplier" prefHeight="34.0" prefWidth="126.0" ripplerFill="#1916c4" style="-fx-background-color: #FF9800; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Update Supplier" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="628.0" layoutY="119.0" onAction="#btnSearchSupplier" prefHeight="34.0" prefWidth="94.0" ripplerFill="#1916c4" style="-fx-background-color: #9eace1; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Search" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtGetSearchNameorEmail" layoutX="280.0" layoutY="120.0" opacity="0.81" prefHeight="33.0" prefWidth="324.0" promptText="            Search ID " style="-jfx-text-fill: black; -fx-background-color: #c7c48a; -fx-border-style: solid;" unFocusColor="BLACK">
+         <font>
+            <Font name="Bodoni MT" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="620.0" layoutY="263.0" onAction="#btnRemoveSupplier" ripplerFill="#1916c4" style="-fx-background-color: #F44336; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Remove Supplier" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtProductId1" layoutX="459.0" layoutY="264.0" promptText="Enter Id" unFocusColor="BLACK" />
+      <JFXButton layoutX="595.0" layoutY="465.0" onAction="#btnReload" prefHeight="17.0" prefWidth="70.0" ripplerFill="#1916c4" style="-fx-background-color: #aaeca0; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Reload" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="11.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>

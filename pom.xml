@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>edu.icet</groupId>
+    <artifactId>Clothify_Store_By_Hibernate</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.5.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>19</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.jfoenix/jfoenix -->
+        <dependency>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>9.0.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>3.3.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>19</version>
+        </dependency>
+    </dependencies>
+<!--   when you want make jar file, you will uncomment below section.-->
+<!--        <build>-->
+<!--            <plugins>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.openjfx</groupId>-->
+<!--                    <artifactId>javafx-maven-plugin</artifactId>-->
+<!--                    <version>0.0.8</version>-->
+<!--                    <configuration>-->
+<!--                        <mainClass>Main</mainClass>-->
+<!--                    </configuration>-->
+<!--                </plugin>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-shade-plugin</artifactId>-->
+<!--                    <version>3.2.4</version> &lt;!&ndash; Use the latest version &ndash;&gt;-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <phase>package</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>shade</goal>-->
+<!--                            </goals>-->
+<!--                            <configuration>-->
+<!--                                <shadedArtifactAttached>true</shadedArtifactAttached>-->
+<!--                                <shadedClassifierName>project-classifier</shadedClassifierName>-->
+<!--                                <outputFile>shade\Clothify_Store.jar</outputFile>-->
+<!--                                <transformers>-->
+<!--                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                                        <mainClass>Main</mainClass>-->
+<!--                                    </transformer>-->
+<!--                                </transformers>-->
+<!--                            </configuration>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </build>-->
+</project>

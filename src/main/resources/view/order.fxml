@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="582.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderController">
+
+    <children>
+        <ImageView fitHeight="619.0" fitWidth="907.0" layoutX="-11.0" layoutY="-6.0" opacity="0.81" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/pexels-mart-production-7679669.jpg" />
+            </image>
+        </ImageView>
+      <Label layoutX="20.0" layoutY="570.0" opacity="0.52" prefHeight="17.0" prefWidth="346.0" style="-fx-background-color: white;" />
+      <Label layoutX="521.0" layoutY="495.0" opacity="0.5" prefHeight="38.0" prefWidth="228.0" style="-fx-background-color: white;" />
+      <Label layoutY="304.0" opacity="0.51" prefHeight="146.0" prefWidth="242.0" style="-fx-background-color: white;" />
+        <VBox alignment="TOP_CENTER" layoutX="4.0" layoutY="308.8" prefHeight="135.0" prefWidth="114.0" spacing="10" style="-fx-opacity: #4CAF50;" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="309.0">
+
+            <!-- Customer Information -->
+            <JFXTextField fx:id="txtcustomerName" focusColor="#3716bc" prefHeight="2.0" prefWidth="174.0" promptText="Customer Name" style="-fx-opacity: 1;" unFocusColor="BLACK" />
+            <JFXTextField fx:id="txtcustomerEmail" prefHeight="12.0" prefWidth="174.0" promptText="Customer Email" unFocusColor="BLACK" />
+            <JFXTextField fx:id="txtcustomerPhone" prefHeight="26.0" prefWidth="144.0" promptText="Phone Number" unFocusColor="BLACK" />
+
+            <VBox spacing="10">
+
+                <!-- Quantity & Price -->
+                <HBox spacing="15" />
+            </VBox>
+
+            <!-- Order Total & Place Order -->
+            <HBox spacing="15" />
+
+        </VBox>
+         <TableView fx:id="orderTable" layoutX="9.0" layoutY="463.0" opacity="0.8" prefHeight="103.0" prefWidth="426.0" style="-fx-background-color: #dde4ae;">
+             <columns>
+                 <TableColumn fx:id="colProductId" style="-fx-background-color: #2d9ad4;" text="Product ID" />
+                 <TableColumn fx:id="colProductName" prefWidth="98.4000244140625" style="-fx-background-color: #2d9ad4;" text="Product Name" />
+                 <TableColumn fx:id="colQuantity2" prefWidth="61.5999755859375" style="-fx-background-color: #2d9ad4;" text="Quantity" />
+                 <TableColumn fx:id="colPrice2" prefWidth="115.20002746582031" style="-fx-background-color: #2d9ad4;" text="Price (LKR)" />
+            <TableColumn fx:id="colDiscount" prefWidth="69.5999755859375" style="-fx-background-color: #2d9ad4;" text="Discount" />
+             </columns>
+         </TableView>
+
+         <!-- Order Summary Table -->
+         <Label alignment="CENTER" layoutX="615.0" layoutY="450.0" prefHeight="34.0" prefWidth="154.0" style="-fx-background-color: #d991d6;" styleClass="sub-header" text="Order Summary">
+         <font>
+            <Font name="Rockwell Nova Extra Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.45">
+               <color>
+                  <Color red="0.20000000298023224" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Label>
+          <JFXTextField fx:id="txttotalAmount" editable="false" layoutX="582.0" layoutY="498.0" promptText="Total Amount (LKR)" unFocusColor="BLACK" />
+
+         <!-- Place Order Button -->
+         <JFXButton layoutX="736.0" layoutY="542.0" onAction="#btnPlaceOrder" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #4de1ce; -fx-border-color: BLUE; -fx-border-radius: 5;" styleClass="button-raised" text="Place Order">
+         <font>
+            <Font name="Kristen ITC" size="14.0" />
+         </font>
+      </JFXButton>
+          <Label layoutX="525.0" layoutY="497.0" prefHeight="26.0" prefWidth="42.0" text="Total : ">
+         <font>
+            <Font name="Quicksand Regular" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="233.0" layoutY="14.0" opacity="0.99" prefHeight="46.0" prefWidth="418.0" style="-fx-background-color: #9df099; -fx-background-radius: 6; -fx-border-color: brown;" text="ORDER HERE  !.....">
+         <font>
+            <Font name="STHupo" size="44.0" />
+         </font>
+         <effect>
+            <DropShadow height="94.16" radius="51.685" spread="0.36" width="114.58" />
+         </effect>
+      </Label>
+      <TableView fx:id="productTable" layoutX="13.0" layoutY="98.0" opacity="0.8" prefHeight="154.0" prefWidth="860.0">
+         <columns>
+            <TableColumn fx:id="colProductIddata" prefWidth="73.60000801086426" text="Product ID" />
+            <TableColumn fx:id="colProductNamedata" prefWidth="95.20003509521484" text="Product Name" />
+            <TableColumn fx:id="colCatagory" prefWidth="88.79998779296875" text="Catagory" />
+            <TableColumn fx:id="colSize" prefWidth="63.20001220703125" text="Size" />
+            <TableColumn fx:id="colPrice" prefWidth="98.39996337890625" text="Price (LKR)" />
+            <TableColumn fx:id="colQuantity" prefWidth="73.5999755859375" text="Quantity" />
+            <TableColumn fx:id="colImage" prefWidth="119.19998168945312" text="Image" />
+            <TableColumn fx:id="colSupplierId" prefWidth="71.20001220703125" text="Supplier ID" />
+            <TableColumn fx:id="colCreatedAt" prefWidth="90.39984130859375" text="Created At  " />
+            <TableColumn fx:id="colUpdate" prefWidth="84.0" text="Discount" />
+         </columns>
+      </TableView>
+      <Label layoutX="248.0" layoutY="313.0" opacity="0.5" prefHeight="103.0" prefWidth="425.0" style="-fx-background-color: white;" />
+      <Label alignment="CENTER" layoutX="255.0" layoutY="272.0" prefHeight="34.0" prefWidth="154.0" style="-fx-background-color: #d991d6;" styleClass="sub-header" text="Product Details">
+         <font>
+            <Font name="Rockwell Nova Extra Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.45">
+               <color>
+                  <Color red="0.20000000298023224" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Label>
+      <JFXTextField fx:id="txtproductId" editable="false" layoutX="332.0" layoutY="317.0" promptText="Product ID" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtproductName" editable="false" layoutX="332.0" layoutY="351.0" promptText="Product Name" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtquantity" layoutX="332.0" layoutY="386.0" prefHeight="26.0" prefWidth="63.0" promptText="Quantity" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtprice" editable="false" layoutX="586.0" layoutY="386.0" prefHeight="26.0" prefWidth="83.0" promptText="Price (LKR)" unFocusColor="BLACK" />
+      <JFXButton buttonType="RAISED" layoutX="679.0" layoutY="390.0" onAction="#btnAddToOrder" prefHeight="33.0" prefWidth="138.0" style="-fx-background-color: #b7d750; -fx-border-color: blue; -fx-border-radius: 5;" styleClass="button-raised" text="Add to Order">
+         <font>
+            <Font name="Kristen ITC" size="14.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="14.0" layoutY="583.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="\@Generated by Clothify Store Management System">
+         <font>
+            <Font name="Book Antiqua Bold" size="14.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="756.0" layoutY="277.0" onAction="#btnReload" style="-fx-background-color: #2c4f6e; -fx-border-style: solid; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 4;" text="Reload" textFill="WHITE">
+         <font>
+            <Font name="Gill Sans Nova Cond XBd" size="17.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtdiscount" layoutX="583.0" layoutY="316.0" prefHeight="26.0" prefWidth="83.0" promptText="Discount" unFocusColor="BLACK" />
+      <JFXTextField fx:id="txtorderId" editable="false" layoutX="583.0" layoutY="354.0" prefHeight="26.0" prefWidth="83.0" promptText="Order ID" unFocusColor="BLACK" />
+      <JFXButton layoutX="525.0" layoutY="551.0" onAction="#btnCalculate" prefHeight="34.0" prefWidth="83.0" ripplerFill="#111194" style="-fx-background-color: #85d461; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Calculate" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="255.0" layoutY="320.0" prefHeight="19.0" prefWidth="75.0" text="Product Id :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="255.0" layoutY="354.0" prefHeight="19.0" prefWidth="75.0" text="Name  :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="255.0" layoutY="389.0" prefHeight="19.0" prefWidth="75.0" text="Quantity :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="491.0" layoutY="319.0" prefHeight="19.0" prefWidth="75.0" text="Discount :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="491.0" layoutY="353.0" prefHeight="19.0" prefWidth="75.0" text="Order Id :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="491.0" layoutY="388.0" prefHeight="19.0" prefWidth="75.0" text="Price (LKR) :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="txtDate" layoutX="122.0" layoutY="415.0" prefHeight="26.0" prefWidth="114.0" promptText="Enter Date" />
+      <JFXTextField fx:id="txtEmployeeId" layoutX="8.0" layoutY="414.0" prefHeight="26.0" prefWidth="106.0" promptText="Employee ID" unFocusColor="BLACK" />
+        <JFXComboBox fx:id="cmbPaymentType" focusColor="#364c8c" labelFloat="true" layoutX="127.0" layoutY="341.0" prefHeight="26.0" prefWidth="114.0" promptText=" Payment Type" unFocusColor="BLACK">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="card" />
+                    <String fx:value="cash" />
+                    <String fx:value="online" />
+                </FXCollections>
+            </items>
+        </JFXComboBox>
+         <Label alignment="CENTER" layoutX="20.0" layoutY="258.0" prefHeight="38.0" prefWidth="170.0" style="-fx-background-color: #d991d6;" styleClass="header" text="Customer Deatils">
+         <font>
+            <Font name="Rockwell Nova Extra Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.45">
+               <color>
+                  <Color red="0.20000000298023224" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Label>
+    </children>
+</AnchorPane>

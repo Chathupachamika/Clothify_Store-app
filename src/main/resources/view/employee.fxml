@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="367.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeController">
+
+    <children>
+      <ImageView fitHeight="367.0" fitWidth="245.0" layoutX="522.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/pexels-musaabzayona-19531051.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="367.0" fitWidth="578.0" layoutX="-28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/pexels-matreding-13532891.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="13.0" layoutY="349.0" opacity="0.65" prefHeight="9.0" prefWidth="358.0" style="-fx-background-color: white;" />
+      <Label layoutX="32.0" layoutY="29.0" opacity="0.34" prefHeight="66.0" prefWidth="518.0" style="-fx-background-color: #c2e7b7; -fx-border-radius: 14;" />
+      <Label layoutX="29.0" layoutY="120.0" opacity="0.59" prefHeight="125.0" prefWidth="226.0" style="-fx-background-color: white;" textFill="WHITE" />
+
+        <!-- Employee Name -->
+        <Label layoutX="34.0" layoutY="127.0" style="-fx-font-weight: bold;" text="ID :" />
+        <JFXTextField fx:id="txtemployeeID" layoutX="111.0" layoutY="123.0" promptText="Enter Employee ID" unFocusColor="#0a0c7e" />
+
+        <!-- Employee Email -->
+        <Label layoutX="32.0" layoutY="188.0" style="-fx-font-weight: bold;" text="Email :" />
+        <JFXTextField fx:id="txtemployeeEmail" layoutX="111.0" layoutY="184.0" promptText="Enter Employee Email" unFocusColor="#0a0c7e" />
+
+        <!-- Employee Company -->
+        <Label layoutX="32.0" layoutY="218.0" style="-fx-font-weight: bold;" text="Company :" />
+        <JFXTextField fx:id="txtemployeeCompany" layoutX="111.0" layoutY="214.0" promptText="Enter Company" unFocusColor="#0a0c7e" />
+
+        <!-- Buttons -->
+        <HBox layoutX="14.0" layoutY="227.0" spacing="10" />
+
+        <!-- Employee Table -->
+        <TableView fx:id="employeeTable" layoutX="276.0" layoutY="146.0" opacity="0.81" prefHeight="170.0" prefWidth="485.0">
+            <columns>
+                <TableColumn fx:id="colEmployeeID" prefWidth="51.20001220703125" style="-fx-background-color: #4CAF50; -fx-text-fill: blue; -fx-font-weight: bold;" text="ID" />
+                <TableColumn fx:id="colEmployeeName" prefWidth="137.60003662109375" style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-weight: bold;" text="Name" />
+                <TableColumn fx:id="colEmployeeEmail" prefWidth="191.20001220703125" style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-weight: bold;" text="Email" />
+                <TableColumn fx:id="colEmployeeCompany" prefWidth="109.5999755859375" style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-weight: bold;" text="Company" />
+            </columns>
+        </TableView>
+
+
+        <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="256.0" onAction="#btnAddEmployee" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5;" text="Add Employee" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="11.0" />
+         </font>
+      </JFXButton>
+          <JFXButton buttonType="RAISED" layoutX="139.0" layoutY="256.0" onAction="#btnUpdateEmployee" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5;" text="Update Employee" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="71.0" layoutY="301.0" onAction="#btnRemoveEmployee" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5;" text="Remove Employee" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="32.0" layoutY="29.0" prefHeight="66.0" prefWidth="518.0" style="-fx-border-style: solid; -fx-border-radius: 6; -fx-border-color: #510808; -fx-border-width: 3;" text="Employee Management" textFill="#114329">
+         <font>
+            <Font name="STHupo" size="46.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.66" height="32.7" offsetX="0.1" radius="7.675000000000001" width="0.0">
+               <color>
+                  <Color red="0.40799999237060547" green="0.46570563316345215" blue="0.800000011920929" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Label>
+      <Text layoutX="14.0" layoutY="360.0" style="-fx-font-size: 15px; -fx-font-weight: bold;" text="\@Generated by Clothify Store Management System" wrappingWidth="469.8418884277344">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtGetSearchNameorEmail" layoutX="316.0" layoutY="103.0" opacity="0.81" prefHeight="33.0" prefWidth="324.0" promptText="Search Name or Email" style="-jfx-text-fill: black; -fx-background-color: #c7c48a; -fx-border-style: solid;" unFocusColor="BLACK">
+         <font>
+            <Font name="Bodoni MT" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="655.0" layoutY="104.0" onAction="#btnSearchEmployee" prefHeight="32.0" prefWidth="97.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5;" text="Search" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="31.0" layoutY="159.0" style="-fx-font-weight: bold;" text="Name :" />
+      <JFXTextField fx:id="txtemployeeName1" layoutX="111.0" layoutY="155.0" promptText="Enter Employee Name" unFocusColor="#0a0c7e" />
+      <JFXButton buttonType="RAISED" layoutX="704.0" layoutY="328.0" onAction="#btnReloadEmployee" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: brown; -fx-text-fill: white; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-text-weight: bold;" text="↻" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="14.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="648.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductController">
+    <ImageView fitHeight="691.0" fitWidth="1024.0" opacity="0.84" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../img/pexels-mart-production-7679814.jpg" />
+        </image>
+    </ImageView>
+   <Label layoutX="633.0" layoutY="594.0" opacity="0.74" prefHeight="45.0" prefWidth="294.0" style="-fx-background-color: white;" />
+   <Label layoutY="358.0" opacity="0.74" prefHeight="212.0" prefWidth="660.0" style="-fx-background-color: white;" />
+
+    <!-- Product Form -->
+    <AnchorPane layoutX="35.0" layoutY="281.0" prefHeight="397.0" prefWidth="360">
+        <Label alignment="CENTER" layoutX="8.0" layoutY="34.0" prefHeight="38.0" prefWidth="200.0" style="-fx-font-size: 22px; -fx-background-color: #d991d6;" text="Add New Product">
+         <effect>
+            <InnerShadow choke="0.49" height="11.64" radius="15.2625" width="51.41">
+               <color>
+                  <Color red="0.14021334052085876" green="0.11879999935626984" blue="0.4399999976158142" />
+               </color>
+            </InnerShadow>
+         </effect></Label>
+
+        <!-- Product ID -->
+        <Label layoutX="1.0" layoutY="92.0" text="Product ID :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font></Label>
+        <JFXTextField fx:id="txtProductId" layoutX="122.0" layoutY="87.0" promptText="Enter Id" unFocusColor="BLACK" />
+
+        <!-- Product Name -->
+        <Label layoutX="1.0" layoutY="132.0" text="Product Name :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font></Label>
+        <JFXTextField fx:id="txtProductName" layoutX="122.0" layoutY="127.0" promptText="Enter productDTO name" unFocusColor="BLACK" />
+
+        <Button fx:id="openFileButton" layoutX="411.0" layoutY="87.0" onAction="#handleOpenFileAction" text="Open File" />
+
+        <!-- Product Category -->
+        <Label layoutX="1.0" layoutY="172.0" text="Category :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font></Label>
+        <JFXComboBox fx:id="cmbCategory" layoutX="108.0" layoutY="167.0" prefHeight="26.0" prefWidth="170.0" unFocusColor="BLACK">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Ladies" />
+                    <String fx:value="Gents" />
+                    <String fx:value="Kids" />
+                </FXCollections>
+            </items>
+        </JFXComboBox>
+
+        <!-- Size -->
+        <Label layoutX="1.0" layoutY="212.0" text="Size :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font></Label>
+        <JFXTextField fx:id="txtSize" layoutX="122.0" layoutY="207.0" promptText="Enter size" unFocusColor="BLACK" />
+
+        <!-- Price -->
+        <Label layoutX="1.0" layoutY="252.0" text="Price (LKR) :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font></Label>
+        <JFXTextField fx:id="txtPrice" layoutX="122.0" layoutY="247.0" promptText="Enter price" unFocusColor="BLACK" />
+
+        <!-- Quantity -->
+        <Label layoutX="311.0" layoutY="259.0" text="Quantity on Hand :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font></Label>
+        <JFXTextField fx:id="txtQuantity" layoutX="437.0" layoutY="254.0" promptText="Enter quantity" unFocusColor="BLACK" />
+      <Label layoutX="316.0" layoutY="92.0" text="Image :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="316.0" layoutY="132.0" prefHeight="15.0" prefWidth="93.0" text="Supplier Id :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSupplierId" layoutX="437.0" layoutY="127.0" promptText="Supplier Id" unFocusColor="BLACK" />
+      <Label layoutX="316.0" layoutY="172.0" text="Created At :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="317.0" layoutY="212.0" text="Discount :">
+         <font>
+            <Font name="Lucida Bright Demibold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="186.0" layoutY="307.0" onAction="#btnAddProduct" prefHeight="34.0" prefWidth="114.0" ripplerFill="#1916c4" style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Add Product" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="-27.0" layoutY="384.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="\@Generated by Clothify Store Management System" wrappingWidth="328.9521484375">
+         <font>
+            <Font name="Book Antiqua Bold" size="14.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="txtCreatedAt" layoutX="410.0" layoutY="167.0" promptText=" (YYYY/MM/DD)" />
+      <JFXButton layoutX="331.0" layoutY="307.0" onAction="#btnUpdateProduct" prefHeight="34.0" prefWidth="126.0" ripplerFill="#1916c4" style="-fx-background-color: #FF9800; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Update Product" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="398.0" layoutY="-8.0" onAction="#btnSearchProduct" prefHeight="34.0" prefWidth="94.0" ripplerFill="#1916c4" style="-fx-background-color: #9eace1; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Search" textFill="#385ad7">
+         <font>
+            <Font name="Kristen ITC" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtUpdatedAt" layoutX="424.0" layoutY="207.0" promptText="Discount" />
+    </AnchorPane>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="14.0" prefHeight="64.0" prefWidth="615.0" style="-fx-border-style: solid; -fx-border-width: 3;" text="PRODUCT  MANAGEMENT">
+      <font>
+         <Font name="STHupo" size="53.0" />
+      </font>
+      <effect>
+         <Lighting diffuseConstant="0.94" specularConstant="0.7" specularExponent="40.0" surfaceScale="10.0">
+            <bumpInput>
+               <Shadow />
+            </bumpInput>
+            <light>
+               <Light.Distant />
+            </light>
+         </Lighting>
+      </effect>
+   </Label>
+   <TableView fx:id="productTable" layoutX="14.0" layoutY="93.0" opacity="0.8" prefHeight="162.0" prefWidth="970.0" style="-fx-background-color: #a2f4e4;">
+      <columns>
+         <TableColumn fx:id="colProductIddata" prefWidth="73.60000801086426" text="Product ID" />
+         <TableColumn fx:id="colProductNamedata" prefWidth="95.20003509521484" text="Product Name" />
+         <TableColumn fx:id="colCatagory" prefWidth="88.79998779296875" text="Catagory" />
+         <TableColumn fx:id="colSize" prefWidth="63.20001220703125" text="Size" />
+         <TableColumn fx:id="colPrice" prefWidth="98.39996337890625" text="Price (LKR)" />
+         <TableColumn fx:id="colQuantity" prefWidth="73.5999755859375" text="Quantity" />
+         <TableColumn fx:id="colImage" prefWidth="129.60000610351562" text="Image" />
+         <TableColumn fx:id="colSupplierId" prefWidth="85.60003662109375" text="Supplier ID" />
+         <TableColumn fx:id="colCreatedAt" prefWidth="126.39996337890625" text="Created At  " />
+         <TableColumn fx:id="colUpdate" prefWidth="132.800048828125" text="Discount" />
+      </columns>
+   </TableView>
+   <JFXTextField fx:id="txtGetSearchNameorEmail" layoutX="72.0" layoutY="268.0" opacity="0.81" prefHeight="33.0" prefWidth="324.0" promptText="            Search ID " style="-jfx-text-fill: black; -fx-background-color: #c7c48a; -fx-border-style: solid;" unFocusColor="BLACK">
+      <font>
+         <Font name="Bodoni MT" size="15.0" />
+      </font>
+   </JFXTextField>
+   <JFXButton layoutX="802.0" layoutY="602.0" onAction="#btnRemoveProduct" ripplerFill="#1916c4" style="-fx-background-color: #F44336; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Remove Product" textFill="#385ad7">
+      <font>
+         <Font name="Kristen ITC" size="11.0" />
+      </font>
+   </JFXButton>
+   <JFXTextField fx:id="txtProductId1" layoutX="641.0" layoutY="603.0" promptText="Enter Id" unFocusColor="BLACK" />
+   <JFXButton layoutX="812.0" layoutY="267.0" onAction="#btnReload" prefHeight="34.0" prefWidth="94.0" ripplerFill="#1916c4" style="-fx-background-color: #aaeca0; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Reload" textFill="#385ad7">
+      <font>
+         <Font name="Kristen ITC" size="13.0" />
+      </font>
+   </JFXButton>
+   <ImageView fx:id="imgChooser" fitHeight="112.0" fitWidth="126.0" layoutX="541.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true" />
+
+</AnchorPane>
