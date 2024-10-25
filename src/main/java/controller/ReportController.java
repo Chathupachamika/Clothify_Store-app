@@ -9,10 +9,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Tooltip;
 import entity.Reports;
 import service.ReportService;
 import service.impl.ReportServiceImpl;
+
+import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -56,7 +62,8 @@ public class ReportController implements Initializable {
 
     @FXML
     void btnExportToPDF(ActionEvent event) {
-    }
+        new Alert(Alert.AlertType.INFORMATION,"Processing Export to pdf... wait....!");
+        }
 
     @FXML
     void btnRefersh(ActionEvent event) {
