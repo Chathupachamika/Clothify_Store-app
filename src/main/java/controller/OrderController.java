@@ -9,10 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import entity.Order;
 import entity.OrderList;
@@ -161,7 +158,13 @@ public class OrderController implements Initializable {
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        alert.getDialogPane().setStyle("-fx-background-color: #FFFAF0; -fx-font-family: 'Verdana'; " +
+                "-fx-font-size: 14px; -fx-text-fill: #333;");
+        alert.getDialogPane().lookupButton(ButtonType.OK).setStyle("-fx-background-color: #033E3E; " +
+                "-fx-text-fill: white; " +
+                "-fx-font-weight: bold;");
         alert.showAndWait();
+
     }
     @FXML
     void btnCalculate(ActionEvent event) {
@@ -268,7 +271,6 @@ public class OrderController implements Initializable {
             txtorderId.setText("No orders found");
         }
     }
-
     private void setTextToValues(Product newValue){
         txtproductId.setText(String.valueOf(newValue.getProductId()));
         txtproductName.setText(newValue.getProductName());
@@ -276,7 +278,6 @@ public class OrderController implements Initializable {
         txtquantity.setText(String.valueOf(newValue.getQuantity()));
         txtdiscount.setText(newValue.getDiscount());
     }
-
     private void loadOrderTable() {
         colProductId.setCellValueFactory(new PropertyValueFactory<>("productId"));
         colProductName.setCellValueFactory(new PropertyValueFactory<>("productName"));

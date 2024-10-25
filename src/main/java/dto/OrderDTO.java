@@ -56,7 +56,7 @@ public class OrderDTO {
         return phoneNumber;
     }
 
-    // Setters
+
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }

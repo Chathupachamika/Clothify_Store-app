@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -23,34 +24,24 @@ public class EmployeeController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colEmployeeCompany;
-
     @FXML
     private TableColumn<?, ?> colEmployeeEmail;
-
     @FXML
     private TableColumn<?, ?> colEmployeeID;
-
     @FXML
     private TableColumn<?, ?> colEmployeeName;
-
     @FXML
     private TableView<Employee> employeeTable;
-
     @FXML
     private JFXTextField txtGetSearchNameorEmail;
-
     @FXML
     private JFXTextField txtemployeeCompany;
-
     @FXML
     private JFXTextField txtemployeeEmail;
-
     @FXML
     private JFXTextField txtemployeeID;
-
     @FXML
     private JFXTextField txtemployeeName1;
-
     private ObservableList<Employee> employeeDTOList = FXCollections.observableArrayList();
     private EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
     @FXML
@@ -81,7 +72,13 @@ public class EmployeeController implements Initializable {
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        alert.getDialogPane().setStyle("-fx-background-color: #FFFAF0; -fx-font-family: 'Verdana'; " +
+                "-fx-font-size: 14px; -fx-text-fill: #333;");
+        alert.getDialogPane().lookupButton(ButtonType.OK).setStyle("-fx-background-color: #033E3E; " +
+                "-fx-text-fill: white; " +
+                "-fx-font-weight: bold;");
         alert.showAndWait();
+
     }
     private void clearFields(){
         txtemployeeCompany.clear();
@@ -99,7 +96,6 @@ public class EmployeeController implements Initializable {
         }
         loadTable();
     }
-
     @FXML
     void btnSearchEmployee(ActionEvent event) {
         String searchKey = txtGetSearchNameorEmail.getText();
@@ -111,7 +107,6 @@ public class EmployeeController implements Initializable {
             txtemployeeEmail.setText(employeeDTO.getEmail());
         }
     }
-
     @FXML
     void btnUpdateEmployee(ActionEvent event) {
         Employee selectedEmployeeDTO = employeeTable.getSelectionModel().getSelectedItem();
@@ -129,7 +124,6 @@ public class EmployeeController implements Initializable {
     void btnReloadEmployee(ActionEvent event) {
         loadTable();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colEmployeeID.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
@@ -143,7 +137,6 @@ public class EmployeeController implements Initializable {
             }
         }));
 }
-
     private void loadTable() {
         List<Employee> allEmployeeDTOS = employeeRepository.getAllEmployees();
         ObservableList<Employee> observableEmployeeDTOS = FXCollections.observableArrayList(allEmployeeDTOS);

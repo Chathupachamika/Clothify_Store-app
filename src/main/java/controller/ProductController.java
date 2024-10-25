@@ -209,13 +209,18 @@ public class ProductController implements Initializable {
             showAlert(Alert.AlertType.ERROR, "Error", e.getMessage());
         }
     }
-
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        alert.getDialogPane().setStyle("-fx-background-color: #FFFAF0; -fx-font-family: 'Verdana'; " +
+                "-fx-font-size: 14px; -fx-text-fill: #333;");
+        alert.getDialogPane().lookupButton(ButtonType.OK).setStyle("-fx-background-color: #033E3E; " +
+                "-fx-text-fill: white; " +
+                "-fx-font-weight: bold;");
         alert.showAndWait();
+
     }
     private void loadTable() {
         List<Product> allProductDTOS = productService.getAllProducts();
@@ -239,7 +244,6 @@ public class ProductController implements Initializable {
             System.out.println("File selection cancelled.");
         }
     }
-
     private void setTextToValues(Product newValue){
         txtProductId.setText(String.valueOf(newValue.getProductId()));
         txtProductName.setText(newValue.getProductName());
@@ -250,7 +254,6 @@ public class ProductController implements Initializable {
         txtCreatedAt.setValue(newValue.getCreatedAt());
         txtUpdatedAt.setText(newValue.getDiscount());
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colProductIddata.setCellValueFactory(new PropertyValueFactory<>("productId"));

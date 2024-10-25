@@ -27,7 +27,6 @@ public class DashBoardController implements Initializable {
     private ImageView imgIcon;
     @FXML
     private Label txtDate;
-
     @FXML
     private Label txtTime;
     @FXML
@@ -56,7 +55,6 @@ public class DashBoardController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
     @FXML
     void btnProductManagement(ActionEvent event) {
         Stage stage = new Stage();
@@ -67,7 +65,6 @@ public class DashBoardController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
     @FXML
     void btnReports(ActionEvent event) {
         Stage stage = new Stage();
@@ -78,7 +75,6 @@ public class DashBoardController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
     @FXML
     void btnSupplierManagement(ActionEvent event) {
         Stage stage = new Stage();
@@ -89,7 +85,6 @@ public class DashBoardController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
     @FXML
     void btnEmployeeManagement(ActionEvent event) {
         Stage stage = new Stage();
@@ -118,13 +113,13 @@ public class DashBoardController implements Initializable {
             } else if (hour >= 12 && hour < 16) {
                 icon = "/img/afternoon.png";
             } else if (hour >= 16 && hour < 19) {
-                icon = "/img/pngtree-good-evening-with-sun-sticker-png-image_8550250.png";
+                icon = "/img/evening.png";
             } else if (hour >= 19 && hour < 24) {
                 icon = "/img/night.png";
             }
 
             imgIcon.setImage(new Image(getClass().getResourceAsStream(icon)));
-           // System.out.println("Current icon: " + icon);
+          //  System.out.println("Current icon: " + icon);
 
         }),
                 new KeyFrame(Duration.seconds(1))
@@ -133,8 +128,6 @@ public class DashBoardController implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadDateandTime();

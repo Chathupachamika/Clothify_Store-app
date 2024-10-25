@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import entity.User;
@@ -34,11 +35,16 @@ public class LogInController {
     @FXML
     private JFXTextField txtPassword;
 
-    // Initialize Hibernate SessionFactory
     private SessionFactory factory;
 
     public LogInController() {
         factory = new Configuration().configure().addAnnotatedClass(User.class).buildSessionFactory();
+    }
+    public String extractNameFromEmail(String email) {
+        if (email == null || !email.contains("@")) {
+            return "User";
+        }
+        return email.split("@")[0];
     }
 
     @FXML
@@ -48,9 +54,12 @@ public class LogInController {
         boolean isAuthenticated = authenticateUser(email, password);
 
         if (isAuthenticated) {
+            showAlert(Alert.AlertType.INFORMATION, "Success",
+                    " HELLO " + extractNameFromEmail(email) + " !..... WELCOME TO CLOTHIFY STORE ... " +
+                            " HAVE A NICE DAY !......");
             loadDashboard(event);
         } else {
-            showAlert(Alert.AlertType.ERROR, "Error","Invalid email or password" +
+            showAlert(Alert.AlertType.ERROR, "Error", "Invalid email or password" +
                     "... Use Sign up with Google...");
             System.out.println("Invalid email or password");
         }
@@ -92,11 +101,19 @@ public class LogInController {
         System.out.println("Google sign-up in progress...");
         loadDashboard(event);
     }
+
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        alert.getDialogPane().setStyle("-fx-background-color: #FFFAF0; -fx-font-family: 'Verdana'; " +
+                "-fx-font-size: 14px; -fx-text-fill: #333;");
+        alert.getDialogPane().lookupButton(ButtonType.OK).setStyle("-fx-background-color: #033E3E; " +
+                "-fx-text-fill: white; " +
+                "-fx-font-weight: bold;");
         alert.showAndWait();
+
     }
 }
+

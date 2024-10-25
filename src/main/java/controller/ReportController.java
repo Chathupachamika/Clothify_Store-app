@@ -10,15 +10,11 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tooltip;
 import entity.Reports;
 import service.ReportService;
 import service.impl.ReportServiceImpl;
-
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +58,7 @@ public class ReportController implements Initializable {
 
     @FXML
     void btnExportToPDF(ActionEvent event) {
-        new Alert(Alert.AlertType.INFORMATION,"Processing Export to pdf... wait....!");
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Processing Export to pdf... wait....!");
         }
 
     @FXML
@@ -279,5 +275,18 @@ public class ReportController implements Initializable {
         lineChartDaily.getXAxis().setLabel("Year");
         lineChartDaily.getYAxis().setLabel("Total Amount");
         lineChartDaily.getData().add(series);
+    }
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.getDialogPane().setStyle("-fx-background-color: #FFFAF0; -fx-font-family: 'Verdana'; " +
+                "-fx-font-size: 14px; -fx-text-fill: #333;");
+        alert.getDialogPane().lookupButton(ButtonType.OK).setStyle("-fx-background-color: #033E3E; " +
+                "-fx-text-fill: white; " +
+                "-fx-font-weight: bold;");
+        alert.showAndWait();
+
     }
 }

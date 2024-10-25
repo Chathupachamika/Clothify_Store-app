@@ -172,7 +172,7 @@
         <Label fx:id="txtIcon" layoutX="567.0" layoutY="8.0" prefHeight="88.0" prefWidth="99.0" />
         <ImageView fx:id="imgIcon" fitHeight="183.0" fitWidth="190.0" layoutX="547.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/pngtree-good-evening-with-sun-sticker-png-image_8550250.png" />
+                <Image url="@../img/evening.png" />
             </image></ImageView>
     </children>
 </AnchorPane>
