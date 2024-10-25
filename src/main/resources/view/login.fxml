@@ -74,7 +74,7 @@
          <Font name="Book Antiqua Bold" size="14.0" />
       </font>
    </Text>
-   <Label alignment="CENTER" layoutX="105.0" layoutY="7.0" prefHeight="48.0" prefWidth="377.0" text="CLOTHING STORE">
+   <Label alignment="CENTER" layoutX="105.0" layoutY="7.0" prefHeight="48.0" prefWidth="377.0" text="CLOTHIFY  STORE">
       <font>
          <Font name="STHupo" size="41.0" />
       </font>

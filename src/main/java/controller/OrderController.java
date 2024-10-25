@@ -30,6 +30,7 @@ import util.HibernateUtil;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -147,9 +148,9 @@ public class OrderController implements Initializable {
             orderData.add(orderlist);
             orderListService.addOrder(orderlist);
             loadOrderTable();
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Order added successfully!");
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Added successfully!");
         } catch (NumberFormatException e) {
-            showAlert(Alert.AlertType.ERROR, "Input Error", "Please enter valid numbers for ID, Price, Quantity, and Discount.");
+            System.out.println("Please enter valid numbers for ID, Price, Quantity, and Discount.");
         } catch (Exception e) {
             showAlert(Alert.AlertType.ERROR, "Error", e.getMessage());
         }
@@ -179,36 +180,62 @@ public class OrderController implements Initializable {
                 return;
             }
             Integer orderId = Integer.valueOf(txtorderId.getText());
-            Integer productId = Integer.valueOf(txtproductId.getText());
+            Integer productId = Integer.valueOf(txtproductId.getText());  // Get product ID from input
+            int quantity = Integer.parseInt(txtquantity.getText());  // Get ordered quantity
             double totalCost = Double.parseDouble(txttotalAmount.getText());
             String customerName = txtcustomerName.getText();
             String customerEmail = txtcustomerEmail.getText();
             String customerPhone = txtcustomerPhone.getText();
             String paymentType = String.valueOf(cmbPaymentType.getValue());
             LocalDate orderDate = txtDate.getValue();
-
-            Order orderTableEka = new Order(orderId, productId, totalCost, paymentType, orderDate, customerEmail, customerName, customerPhone);
-            orderTableEka.setOrderId(orderId);
-            orderTableEka.setEmployeeId(productId);
-            orderTableEka.setTotalCost(totalCost);
-            orderTableEka.setPaymentType(paymentType);
-            orderTableEka.setOrderDate(orderDate);
-            orderTableEka.setCustomerEmail(customerEmail);
-            orderTableEka.setCustomerName(customerName);
-            orderTableEka.setPhoneNumber(customerPhone);
-            orderData2.add(orderTableEka);
-            orderTableEka2.addOrder(orderTableEka);
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Order added successfully!");
+            Order order = new Order(orderId, productId, totalCost, paymentType, orderDate, customerEmail, customerName, customerPhone);
+            orderData2.add(order);
+            orderTableEka2.addOrder(order);
+            placeOrderAndUpdateStock(productId, quantity);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Order placed successfully!");
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Please enter valid numbers for Product ID and Quantity.");
         } catch (Exception e) {
             showAlert(Alert.AlertType.ERROR, "Error", e.getMessage());
-        }showAlert(Alert.AlertType.INFORMATION, "Order Placed", "Your order has been placed successfully.");
+        }
+        clearAllFields();
+        orderTable.getItems().clear();
+    }
+
+    public void placeOrderAndUpdateStock(int productId, int orderedQuantity) {
+        try {
+            Product product = productService.getProductById(productId);
+
+            if (product != null) {
+                int currentStock = product.getQuantity();
+                if (currentStock >= orderedQuantity) {
+                    int newStock = currentStock - orderedQuantity;
+                    product.setQuantity(newStock);
+                    productService.updateProductStock(product);
+                    System.out.println("Order placed successfully! New stock for " + product.getProductName() + ": " + newStock);
+                } else {
+                    showAlert(Alert.AlertType.WARNING, "Stock Error", "Not enough stock for " + product.getProductName() + ". Available: " + currentStock);
+                }
+            } else {
+                System.out.println( "Product not found.");
+            }
+        } catch (Exception e) {
+            System.out.println( "Error");
+        }
+    }
+
+    @FXML
+    void clearAllFields() {
+        Arrays.asList(txtproductId, txtcustomerPhone, txtcustomerEmail, txtcustomerName,
+                        txttotalAmount, txtprice, txtquantity, txtEmployeeId, txtorderId, txtdiscount)
+                .forEach(JFXTextField::clear);
+        txtDate.setValue(null);
+        cmbPaymentType.setValue(null);
     }
 
     @FXML
     void btnReload(ActionEvent event) {
-        orderData.clear();
-        orderTable.getItems().clear();
-        txttotalAmount.clear();
+        loadTable();
     }
 
     @Override
@@ -269,8 +296,8 @@ public class OrderController implements Initializable {
     public int getLastOrderId() {
         int lastOrderId = -1;
         try (Session session = HibernateUtil.getSession()) {
-            String hql = "SELECT MAX(o.orderId) FROM Order o";
-            Integer result = (Integer) session.createQuery(hql).uniqueResult();
+            String sql = "SELECT MAX(o.orderId) FROM Order o";
+            Integer result = (Integer) session.createQuery(sql).uniqueResult();
             lastOrderId = (result != null ? result + 1 : 1);
         } catch (Exception e) {
             e.printStackTrace();

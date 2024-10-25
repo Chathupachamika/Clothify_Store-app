@@ -50,7 +50,7 @@
                         <Font name="Kristen ITC" size="10.0" />
                     </font>
                 </JFXTextArea>
-                <JFXButton onAction="#btnProductManagement" prefHeight="30.0" prefWidth="151.0" ripplerFill="#1916c4" style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="Product Management" textFill="#385ad7">
+                <JFXButton onAction="#btnProductManagement" prefHeight="30.0" prefWidth="151.0" ripplerFill="#1916c4" style="-fx-background-color: #4CAF50; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="ProductS" textFill="#385ad7">
                     <font>
                         <Font name="Bowlby One SC Regular" size="10.0" />
                     </font>
@@ -67,7 +67,7 @@
                         <Font name="Kristen ITC" size="10.0" />
                     </font>
                 </JFXTextArea>
-                <JFXButton onAction="#btnOrderManagement" prefHeight="11.0" prefWidth="134.0" ripplerFill="#1916c4" style="-fx-background-color: #aaeca0; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="Order Management" textFill="#385ad7">
+                <JFXButton onAction="#btnOrderManagement" prefHeight="11.0" prefWidth="134.0" ripplerFill="#1916c4" style="-fx-background-color: #aaeca0; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="Order  HERE ...!" textFill="#385ad7">
                     <font>
                         <Font name="Bowlby One SC Regular" size="10.0" />
                     </font>
@@ -84,7 +84,7 @@
                         <Font name="Kristen ITC" size="10.0" />
                     </font>
                 </JFXTextArea>
-                <JFXButton onAction="#btnSupplierManagement" prefHeight="7.0" prefWidth="150.0" ripplerFill="#1916c4" style="-fx-background-color: #9eace1; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="Supplier Management" textFill="#385ad7">
+                <JFXButton onAction="#btnSupplierManagement" prefHeight="7.0" prefWidth="150.0" ripplerFill="#1916c4" style="-fx-background-color: #9eace1; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="Supplier  DETAILS" textFill="#385ad7">
                     <font>
                         <Font name="Bowlby One SC Regular" size="10.0" />
                     </font>
@@ -101,7 +101,7 @@
                         <Font name="Kristen ITC" size="10.0" />
                     </font>
                 </JFXTextArea>
-                <JFXButton alignment="BOTTOM_RIGHT" onAction="#btnEmployeeManagement" ripplerFill="#1916c4" style="-fx-background-color: #F44336; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="Employee Management" textAlignment="RIGHT" textFill="#385ad7">
+                <JFXButton alignment="BOTTOM_RIGHT" onAction="#btnEmployeeManagement" ripplerFill="#1916c4" style="-fx-background-color: #F44336; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 6; -fx-font-weight: bold;" text="Employee  DETAILS" textAlignment="RIGHT" textFill="#385ad7">
                     <font>
                         <Font name="Bowlby One SC Regular" size="10.0" />
                     </font>
@@ -135,7 +135,7 @@
                 <Font name="High Tower Text" size="27.0" />
             </font>
         </Label>
-        <JFXTextArea editable="false" layoutX="48.0" layoutY="136.0" prefHeight="58.0" prefWidth="562.0" style="-fx-font-weight: bold;" text="&quot;To revolutionize [your company/store's name] by creating a seamless, customer-first experience through innovation, efficiency, and a commitment to excellence in every interaction—empowering growth and fostering long-lasting relationships with employeeDTOS, supplierDTOS, and customers alike.&quot;" />
+        <JFXTextArea editable="false" layoutX="48.0" layoutY="136.0" prefHeight="58.0" prefWidth="562.0" style="-fx-font-weight: bold;" text="&quot;To revolutionize CLOTHIFY STORE by creating a seamless, customer-first experience through innovation, efficiency, and a commitment to excellence in every interaction—empowering growth and fostering long-lasting relationships with employeeDTOS, supplierDTOS, and customers alike.&quot;" />
         <JFXTextArea editable="false" layoutX="55.0" layoutY="232.0" prefHeight="70.0" prefWidth="555.0" style="-fx-font-weight: bold;" text="&quot;To deliver top-quality productDTOS and exceptional service while continually enhancing operational processes, empowering our team, and embracing new technologies. We aim to provide a reliable and sustainable ecosystem for customers, supplierDTOS, and employeeDTOS, ensuring value, trust, and satisfaction in every orderDTO placed and every partnership built.&quot;" />
         <Label layoutX="278.0" layoutY="200.0" style="-fx-font-weight: bold;" text="MISSION">
             <font>

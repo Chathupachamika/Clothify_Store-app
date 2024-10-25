@@ -63,7 +63,7 @@
          <font>
             <Font name="Book Antiqua Bold" size="14.0" />
          </font></Text>
-      <JFXButton layoutX="38.0" layoutY="768.0" onAction="#btnExportToPDF" prefHeight="34.0" prefWidth="114.0" ripplerFill="#1916c4" style="-fx-background-color: #85d461; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Export to PDF" textFill="#385ad7">
+      <JFXButton layoutX="38.0" layoutY="768.0" onAction="#btnExportToPDF" prefHeight="34.0" prefWidth="114.0" ripplerFill="#1916c4" style="-fx-background-color: orange; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Export to PDF" textFill="#385ad7">
          <font>
             <Font name="Kristen ITC" size="12.0" />
          </font>
@@ -94,12 +94,12 @@
          </yAxis>
       </LineChart>
       <PieChart fx:id="PieChart21" layoutX="425.0" layoutY="377.0" prefHeight="416.0" prefWidth="374.0" style="-fx-font-weight: bold;" title="Sales Breakdown Annually" />
-      <JFXButton layoutX="645.0" layoutY="28.0" onAction="#btnGo" prefHeight="34.0" prefWidth="64.0" ripplerFill="#12107e" style="-fx-background-color: yellow; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Go" textFill="#1f42bf">
+      <JFXButton layoutX="603.0" layoutY="28.0" onAction="#btnGo" prefHeight="34.0" prefWidth="64.0" ripplerFill="#12107e" style="-fx-background-color: yellow; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Go" textFill="#1f42bf">
          <font>
             <Font name="Kristen ITC" size="12.0" />
          </font>
       </JFXButton>
-        <JFXComboBox fx:id="cmbYear" focusColor="#364c8c" labelFloat="true" layoutX="515.0" layoutY="32.0" prefHeight="26.0" prefWidth="102.0" promptText="Choose Year" unFocusColor="BLACK">
+        <JFXComboBox fx:id="cmbYear" focusColor="#364c8c" labelFloat="true" layoutX="473.0" layoutY="32.0" prefHeight="26.0" prefWidth="102.0" promptText="Choose Year" unFocusColor="BLACK">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="2021" />
@@ -109,13 +109,13 @@
                 </FXCollections>
             </items>
         </JFXComboBox>
-      <JFXButton layoutX="223.0" layoutY="768.0" onAction="#btnRefersh" prefHeight="34.0" prefWidth="96.0" ripplerFill="#1815b7" style="-fx-background-color: orange; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Refrtesh All" textFill="#385ad7">
+      <JFXButton layoutX="703.0" layoutY="28.0" onAction="#btnRefersh" prefHeight="34.0" prefWidth="96.0" ripplerFill="#1815b7" style="-fx-background-color: #85d461; -fx-text-fill: black; -fx-border-color: #385ad7; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold;" text="Refrtesh All" textFill="#385ad7">
          <font>
             <Font name="Kristen ITC" size="12.0" />
          </font>
       </JFXButton>
-      <JFXTextArea layoutX="459.0" layoutY="320.0" prefHeight="31.0" prefWidth="64.0" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-background-color: #a4afd7;" text="1-2021  2-2022&#10;3-2023&#10;4-2024" unFocusColor="BLACK" />
-      <JFXTextArea layoutX="843.0" layoutY="788.0" prefHeight="17.0" prefWidth="84.0" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-background-color: #a4afd7;" text="1-Gents    2-Ladies&#10;3-Kids      4-Others" unFocusColor="BLACK" />
+      <JFXTextArea layoutX="459.0" layoutY="290.0" prefHeight="72.0" prefWidth="64.0" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-background-color: #a4afd7;" text="1-2021  2-2022&#10;3-2023&#10;4-2024" unFocusColor="BLACK" />
+      <JFXTextArea layoutX="843.0" layoutY="750.0" prefHeight="72.0" prefWidth="85.0" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-background-color: #a4afd7;" text="0-Gents  1-Ladies&#10;2-Kids         3-Others" unFocusColor="BLACK" />
 
     </children>
 </AnchorPane>
